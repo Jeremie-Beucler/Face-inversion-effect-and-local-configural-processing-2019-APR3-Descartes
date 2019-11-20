@@ -12,19 +12,19 @@ Il y avait donc 16 visages différents en tout, soit *8 paires de visages* (4 pa
 
 ### Codage de l'expérience
 
-Il s'agit d'une expérience de discrimination de visages réalisée sur *Python 3* à l'aide du module *Expyriment*. 
+Il s'agit d'une expérience de discrimination de visages réalisée sur *Python 3* à l'aide du module [Expyriment](https://www.expyriment.org/). 
 
-Il y a deux facteurs à deux modalités: Orientation (endroit/envers) et Floutage de la zone des yeux (partiel/total), soit 4 conditions. 
+Il y a deux facteurs à deux modalités: **Orientation** (*endroit/envers*) et **Floutage de la zone des yeux** (*partiel/total*), soit 4 conditions. 
 
 Une croix de fixation précède chaque présentation durant 1500ms, et est suivie de la présentation aléatoire de deux photos appartenant à l'une des quatre conditions.
 
-Les sujets passent tous les facteurs en intra-sujet: ils voient donc des paires de photos appartenant aux quatre conditions différentes.
+Les sujets passent **tous les facteurs en intra-sujet**: ils voient donc des paires de photos appartenant aux quatre conditions différentes.
 
 ![](P2MDEK.jpg)
 
 *Exemple: photo de deux visages à l'envers dont l'intérieur des yeux est flouté.* 
 
-A chaque fois, le participant doit indiquer si les photos de la paire présentée sont pareils ou différents. Il y a 10 paires d'entraînement, suivies de 64 paires présentées dans un ordre aléatoire.
+A chaque fois, le participant doit indiquer si les photos de la paire présentée sont pareils ou différents. Il y a **10 paires d'entraînement**, suivies de **64 paires tests** présentées dans un ordre aléatoire.
 
 ```
 """Expérience de discrimination de visages à 4 conditions à l'aide d'Expyriment dont les résultats 
@@ -462,13 +462,13 @@ J'ai beaucoup retiré de ce travail.
 
 Tout d'abord, il m'a permis de **me familiariser avec la démarche expérimentale**, de voir comment designer une expérience du début à la fin: s'inspirer de la littérature, trouver ses facteurs et les opérationnaliser, fabriquer son matériel en contrôlant les paramètres, créer la procédure, faire passer l'expérience, analyser ses données.
 
-Ensuite, il m'a permis d'**appliquer ce que j'apprenais en cours de *programmation** appliquée aux sciences cognitives* avec Christophe Pallier à l'ENS, et notamment l'utilisation d'*Expyriment* et de *Pandas*, ainsi que de *Github* pour présenter son propre travail.
+Ensuite, il m'a permis d'**appliquer ce que j'apprenais en cours de programmation** à l'ENS, et notamment l'utilisation d'*Expyriment* et de *Pandas*, ainsi que de *Github* pour présenter son propre travail.
 
 ### Les axes d'amélioration
 
 #### Le travail d'équipe
 
-La science est une entreprise collaborative, et ce projet était à réaliser en équipe de trois. Je ne connaissais pas mes partenaires au début du projet, les ayant choisis au hasard. J'ai souvent eu l'impression d'effectuer la grande majorité du travail de mon côté. Si cela m'a permis de gagner en autonomie, je n'ai pas vraiment appris à travailler en équipe aussi bien que j'aurais dû, et je ne pense pas qu'ils aient pu énormément de choses de ce projet .
+La science est une entreprise collaborative, et ce projet était à réaliser en équipe de trois. Je ne connaissais pas mes partenaires au début du projet, les ayant choisis au hasard. J'ai souvent eu l'impression d'effectuer la grande majorité du travail de mon côté. Peut-être était-ce dû en partie au fait qu'il ne savait pas coder. Si cela m'a permis de gagner en autonomie, je n'ai pas vraiment appris à travailler en équipe aussi bien que j'aurais dû, et inversement, je ne pense pas qu'ils aient pu retirer énormément de choses de ce projet.
 
 #### Le nombre de visages présentés et le design expérimental
 
@@ -478,21 +478,19 @@ L'expérience ne présentait que 16 visages différents, dans la mesure où tous
 
 Sachant que j'ai commencé à coder pour l'expérience très tôt dans le semestre, le code n'est pas optimal, ni très propre. J'ai pour projet de le reprendre pour le rendre plus efficace et plus lisible par les autres, ce qui fait partie de la démarche scientifique (principe de *communicabilité*).
 
-#### Les statistiques
+#### Les statistiques inférentielles et la conditions contrôle
 
-Il était un peu frustrant de devoir se limiter aux statistiques descriptives, dans la mesure où l'UE de Statistiques de Descartes n'avait lieu qu'au second semestre. Cela revient à supprimer une des étapes essentielles de l'expérience!
+Il était un peu frustrant de devoir se limiter aux statistiques descriptives, dans la mesure où l'UE de Statistiques de Descartes n'avait lieu qu'au second semestre.
 
-#### Une condition contrôle?
+De même, il aurait pu être intéressant de rajouter une condition contrôle avec des visages non-floutés, pour comparer les résultats avec les conditions Floutage. Mais les consignes de l'UE de l'Université stipulaient qu'il ne fallait que deux facteurs à deux modalités.
 
-Il aurait pu être intéressant de rajouter une condition contrôle avec des visages non-floutés, pour comparer les résultats avec les conditions Floutage. Mais les consignes de l'UE de l'Université stipulaient qu'il ne fallait que deux facteurs à deux modalités.
+### Reconnaissance et remerciements
 
-### Remerciements
+Je remercie chaleureusement de leur aide ou de leur collaboration dans ce modeste travail:
 
-Je remercie chaleureusement de leur aide dans ce modeste travail:
-
-- l'enseignante de l'UE APR3 de Paris Descartes
-- mon professeur de programmation du cours PCBS à l'ENS
-- mes deux collègues avec qui j'ai effectué ce travail
+- l'enseignante de l'UE APR3 de Paris Descartes pour ses conseils concernant le design de l'expérience, les facteurs à contrôler, le traitement des données (exclusion des outliers, etc.).
+- mon professeur de programmation du cours PCBS à l'ENS pour son enseignement de la programmation et les nombreux outils qu'il nous a fournis (Expyriment, Pandas, Github et Git, Automatetheboringstuff, Pygame, son propre site, etc.)
+- et bien sûr, mes deux collègues avec qui j'ai effectué ce travail dans le cadre de l'UE APR3
 
 
 
