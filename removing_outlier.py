@@ -1,12 +1,36 @@
 import os
 import pandas as pd
+import statistics as stat
+
+nb_file = 0
+list_mean_rt_participants = []
+for csvFilename in os.listdir('.'):
+	if not csvFilename.endswith('.csv'):
+		continue
+#ne prend en compte que les fichiers .csv
+	data_frame = pd.read_csv(csvFilename)
+	list_mean_rt_participants.append(data_frame.RT.mean())
+
+mean_rt_participants = stat.mean(list_mean_rt_participants)
+std_rt_participants = stat.pstdev(list_mean_rt_participants)
+print(mean_rt_participants)
+print(std_rt_participants)
+#calcule la moyenne des rt des participants ainsi que l'écart-type de cette distribution
 
 for csvFilename in os.listdir('.'):
 	if not csvFilename.endswith('.csv'):
 		continue
 #ne prend en compte que les fichiers .csv
 	data_frame = pd.read_csv(csvFilename)
-#créé un 'data frame' avec pandas à partir du fichier csv
+	if abs(((data_frame.RT.mean() - mean_rt_participants) / std_rt_participants)) > 3:
+		print('Must suppress :' + csvFilename)
+		print('Mean rt of this file: ' + str(data_frame.RT.mean()))
+#informe du sujet aberrant à supprimer (si son score Z est supérieur à 3 en valeur absolue
+
+for csvFilename in os.listdir('.'):
+	if not csvFilename.endswith('.csv'):
+		continue
+	data_frame = pd.read_csv(csvFilename)
 	mean_rt = data_frame.RT.mean()
 	standard_dev_rt = data_frame.RT.std()
 	i = 0
@@ -19,7 +43,7 @@ for csvFilename in os.listdir('.'):
 		else: 
 			i += 1
 	counter = 0
-#supprime les données aberrates par rapport aux rt
+#supprime les données aberrates par rapport aux  du sujet en question
 	if len(elt_to_del) != 0:
 		for elt in elt_to_del:
 			print("Supression de la ligne excel (", csvFilename, "): ", elt + counter + 2)
