@@ -478,7 +478,7 @@ L'expérience ne présentait que 16 visages différents, dans la mesure où tous
 
 Sachant que j'ai commencé à coder pour l'expérience très tôt dans le semestre, le code n'est pas optimal, ni très propre. J'ai pour projet de le reprendre pour le rendre plus efficace et plus lisible par les autres, ce qui fait partie de la démarche scientifique (principe de *communicabilité*).
 
-#### Les statistiques inférentielles et la conditions contrôle
+#### Les statistiques inférentielles et la condition contrôle
 
 Il était un peu frustrant de devoir se limiter aux statistiques descriptives, dans la mesure où l'UE de Statistiques de Descartes n'avait lieu qu'au second semestre.
 
