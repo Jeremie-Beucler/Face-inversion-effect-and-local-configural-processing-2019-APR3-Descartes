@@ -21,8 +21,10 @@ Une croix de fixation précède chaque présentation durant 1500ms, et est suivi
 Les sujets passent **tous les facteurs en intra-sujet**: ils voient donc des paires de photos appartenant aux quatre conditions différentes.
 
 ![](P2MDEK.jpg)
+__*Exemple de stimulus n°1 : photo de deux visages masculins différents à l'envers dont l'intérieur des yeux est flouté.*__
 
-*Exemple: photo de deux visages à l'envers dont l'intérieur des yeux est flouté.* 
+![](P1FSAT.jpg)
+__*Exemple de stimulus n°2 : photo de deux visages féminins identique à l'endroit dont la totalité de la zone des yeux est flouté*__
 
 A chaque fois, le participant doit indiquer si les photos de la paire présentée sont pareils ou différents. Il y a **10 paires d'entraînement**, suivies de **64 paires tests** présentées dans un ordre aléatoire.
 
