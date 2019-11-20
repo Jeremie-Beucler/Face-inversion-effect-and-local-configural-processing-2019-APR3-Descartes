@@ -468,7 +468,7 @@ Ensuite, il m'a permis d'**appliquer ce que j'apprenais en cours de programmatio
 
 #### Le travail d'équipe
 
-La science est une entreprise collaborative, et ce projet était à réaliser en équipe de trois. Je ne connaissais pas mes partenaires au début du projet, les ayant choisis au hasard. J'ai souvent eu l'impression d'effectuer la grande majorité du travail de mon côté. Peut-être était-ce dû en partie au fait qu'il ne savait pas coder. Si cela m'a permis de gagner en autonomie, je n'ai pas vraiment appris à travailler en équipe aussi bien que j'aurais dû, et inversement, je ne pense pas qu'ils aient pu retirer énormément de choses de ce projet.
+La science est une entreprise collaborative, et ce projet était à réaliser en équipe de trois. Je ne connaissais pas mes partenaires, qui faisaient partie de mon groupe de TD, au début du projet. J'ai souvent eu l'impression d'effectuer la majorité du travail de mon côté. Peut-être était-ce dû en partie au fait qu'ils ne savaient pas coder. Si cela m'a permis de gagner en autonomie, je n'ai pas vraiment appris à travailler en équipe aussi bien que j'aurais dû, ni à déléguer les tâches, et inversement, je ne pense pas qu'ils aient retiré autant qu'ils auraient pu de ce projet. Cependant, nous avons quand même bien échangé sur la partie concernant le *design* de l'expérience.
 
 #### Le nombre de visages présentés et le design expérimental
 
