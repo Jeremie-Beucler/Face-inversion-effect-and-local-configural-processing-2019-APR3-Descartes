@@ -1,10 +1,14 @@
-# Memoire APR3
+# Memoire APR3 (réalisé avec Emma HERCHE et Constantin SANTARELLI)
 
 ## Mise au point de l'expérience
 
 ### Elaboration des stimuli
 
-Les paires de visages sont tirées de la *Chicago Face Database*, dont les conditions d'exposition sont standardisées, et ont été détourées et mises en noir et blanc grâce au logiciel *Gimp*. Le floutage et l'orientation ont ensuite été ajoutés grâce à Powerpoint.
+Les paires de visages sont tirées de la [Chicago Face Database](https://chicagofaces.org/default/), dont les conditions d'exposition sont standardisées, et ont été détourées et mises en noir et blanc grâce au logiciel *Gimp*. 
+
+Le floutage et l'orientation ont ensuite été ajoutés aux photos obtenues. 
+
+Il y avait donc 16 visages différents en tout, soit *8 paires de visages* (4 paires hommes et 4 paires femmes) se ressemblant x *facteur Orientation* x *facteur Floutage des yeux* x *Pareil/différent*, ce qui donne un total de 64 stimuli.
 
 ### Codage de l'expérience
 
@@ -13,6 +17,8 @@ Il s'agit d'une expérience de discrimination de visages réalisée sur *Python 
 Il y a deux facteurs à deux modalités: Orientation (endroit/envers) et Floutage de la zone des yeux (partiel/total), soit 4 conditions. 
 
 Une croix de fixation précède chaque présentation durant 1500ms, et est suivie de la présentation aléatoire de deux photos appartenant à l'une des quatre conditions.
+
+Les sujets passent tous les facteurs en intra-sujet: ils voient donc des paires de photos appartenant aux quatre conditions différentes.
 
 ![](P2MDEK.jpg)
 
@@ -256,7 +262,7 @@ expyriment.control.end(goodbye_text="Merci pour votre participation!")
 
 Il m'a ensuite fallu convertir les fichiers *.xpd* en fichiers *.csv* et supprimer les premières lignes des fichiers qui contenaient des informations inutiles.
 
-Sur internet, j'ai trouvé cette petite manip' pour changer rapidement l'extension de plusieurs fichiers.
+Sur internet, j'ai trouvé cette petite manip' pour changer rapidement l'extension de plusieurs fichiers grâce à un fichier *.bat*.
 
 ```
 @echo off
@@ -306,7 +312,7 @@ Une fois cela effectué, l'on dispose donc de fichiers *.csv* utilisables direct
 
 #### Suppression des "outliers"
 
-Il restait à supprimer les données aberrantes, celles pour lesquelles le sujet avait répondu en moins de 300ms ou celles dont le score Z était supérieur à trois (les réponses beaucoup trop rapides, ou beaucoup trop lentes par rapport aux autres réponses du sujet. Cela a été effectué grâce au module *Pandas*.
+Sur les conseils de notre enseignante d'APR3, il restait à supprimer les données aberrantes, celles pour lesquelles le sujet avait répondu en moins de 300ms ou celles dont le score Z était supérieur à trois (les réponses beaucoup trop rapides, ou beaucoup trop lentes par rapport aux autres réponses du sujet. Cela a été effectué grâce au module *Pandas*.
 
 ```
 import os
@@ -348,7 +354,7 @@ for csvFilename in os.listdir('.'):
 
 #### Statistiques descriptives
 
-Toujours grâce au module *Pandas* ainsi qu'au module *Statistics*, il ne restait plus qu'à lire les fichiers *.csv* de chaque sujet et à sommer les résultats de tous les sujets en fonction des différentes conditions pour obtenir les temps de réaction en ms et les performances en %.
+Toujours grâce au module *Pandas* ainsi qu'au module *Statistics*, il ne restait plus qu'à lire les fichiers *.csv* de chaque sujet et à sommer les résultats de tous les sujets en fonction des différentes conditions pour obtenir les temps de réaction en ms des réponses correctes et les performances en %.
 
 ```
 import os
@@ -447,3 +453,48 @@ print(round(stat.mean(mean_prf_upd_part), 2))
 print(round(stat.pstdev(mean_prf_upd_part), 2))
 #sort les résultats pour tous les sujets
 ```
+
+## Conclusion
+
+### Ce que j'ai retiré de ce projet
+
+J'ai beaucoup retiré de ce travail.
+
+Tout d'abord, il m'a permis de **me familiariser avec la démarche expérimentale**, de voir comment designer une expérience du début à la fin: s'inspirer de la littérature, trouver ses facteurs et les opérationnaliser, fabriquer son matériel en contrôlant les paramètres, créer la procédure, faire passer l'expérience, analyser ses données.
+
+Ensuite, il m'a permis d'**appliquer ce que j'apprenais en cours de *programmation** appliquée aux sciences cognitives* avec Christophe Pallier à l'ENS, et notamment l'utilisation d'*Expyriment* et de *Pandas*, ainsi que de *Github* pour présenter son propre travail.
+
+### Les axes d'amélioration
+
+#### Le travail d'équipe
+
+La science est une entreprise collaborative, et ce projet était à réaliser en équipe de trois. Je ne connaissais pas mes partenaires au début du projet, les ayant choisis au hasard. J'ai souvent eu l'impression d'effectuer la grande majorité du travail de mon côté. Si cela m'a permis de gagner en autonomie, je n'ai pas vraiment appris à travailler en équipe aussi bien que j'aurais dû, et je ne pense pas qu'ils aient pu énormément de choses de ce projet .
+
+#### Le nombre de visages présentés et le design expérimental
+
+L'expérience ne présentait que 16 visages différents, dans la mesure où tous les facteurs étaient en intra-sujet et que nous ne voulions pas que l'expérience dure trop longtemps (sachant que nos sujets n'étaient pas payés). Peut-être aurait-il fallu passer les facteurs en inter-sujet pour éviter cet écueil.
+
+#### La clarté du code
+
+Sachant que j'ai commencé à coder pour l'expérience très tôt dans le semestre, le code n'est pas optimal, ni très propre. J'ai pour projet de le reprendre pour le rendre plus efficace et plus lisible par les autres, ce qui fait partie de la démarche scientifique (principe de *communicabilité*).
+
+#### Les statistiques
+
+Il était un peu frustrant de devoir se limiter aux statistiques descriptives, dans la mesure où l'UE de Statistiques de Descartes n'avait lieu qu'au second semestre. Cela revient à supprimer une des étapes essentielles de l'expérience!
+
+#### Une condition contrôle?
+
+Il aurait pu être intéressant de rajouter une condition contrôle avec des visages non-floutés, pour comparer les résultats avec les conditions Floutage. Mais les consignes de l'UE de l'Université stipulaient qu'il ne fallait que deux facteurs à deux modalités.
+
+### Remerciements
+
+Je remercie chaleureusement de leur aide dans ce modeste travail:
+
+- l'enseignante de l'UE APR3 de Paris Descartes
+- mon professeur de programmation du cours PCBS à l'ENS
+- mes deux collègues avec qui j'ai effectué ce travail
+
+
+
+
+
