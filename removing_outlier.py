@@ -38,7 +38,7 @@ for csvFilename in os.listdir('.'):
 	for elt in data_frame.RT:
 		if elt < 300:
 			elt_to_del.append(i)
-		elif abs(((elt - mean_rt) / standard_dev_rt)) > 3:
+		elif abs(((elt - mean_rt) / standard_dev_rt)) > 2:
 			elt_to_del.append(i)
 		else: 
 			i += 1
