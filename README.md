@@ -1,12 +1,12 @@
-# Memoire-APR3
+# Memoire APR3
 
-##Mise au point de l'expérience
+## Mise au point de l'expérience
 
-###Elaboration des stimuli
+### Elaboration des stimuli
 
 Les paires de visages sont tirées de la *Chicago Face Database*, dont les conditions d'exposition sont standardisées, et ont été détourées et mises en noir et blanc grâce au logiciel *Gimp*. Le floutage et l'orientation ont ensuite été ajoutés grâce à Powerpoint.
 
-###Codage de l'expérience
+### Codage de l'expérience
 
 Il s'agit d'une expérience de discrimination de visages réalisée sur *Python 3* à l'aide du module *Expyriment*. 
 
@@ -242,9 +242,9 @@ for elt in list_stim:
 			
 expyriment.control.end(goodbye_text="Merci pour votre participation!")
 ```
-##Analyse des données
+## Analyse des données
 
-###Conversion en fichiers *.csv* et suppression des premières lignes
+### Conversion en fichiers *.csv* et suppression des premières lignes
 
 Il m'a ensuite fallu convertir les fichiers *.xpd* en fichiers *.csv* et supprimer les premières lignes des fichiers qui contenaient des informations inutiles.
 
@@ -254,7 +254,7 @@ Sur internet, j'ai trouvé cette petite manip' pour changer rapidement l'extensi
 @echo off
 ren *.xpd *.csv
 ```
-Il ne me restait plus qu'à supprimer les premières lignes de mes fichiers *.csv*.
+Il ne me restait plus qu'à supprimer les premières lignes de mes fichiers *.csv*. Pour ce faire, j'ai légèrement modifié le code proposé sur le site [Automate the Boring Stuff with Python](https://automatetheboringstuff.com/chapter14/).
 
 ```
 import csv
@@ -292,11 +292,11 @@ for csvFilename in os.listdir('.'):
 	csvFileObj.close()
 ```
 
-###Traitement des données
+### Traitement des données
 
 Une fois cela effectué, l'on dispose donc de fichiers *.csv* utilisables directement.
 
-####Suppression des "outliers"
+#### Suppression des "outliers"
 
 Il restait à supprimer les données aberrantes, celles pour lesquelles le sujet avait répondu en moins de 300ms ou celles dont le score Z était supérieur à trois (les réponses beaucoup trop rapides, ou beaucoup trop lentes par rapport aux autres réponses du sujet. Cela a été effectué grâce au module *Pandas*.
 
@@ -338,7 +338,7 @@ for csvFilename in os.listdir('.'):
 		data_frame.to_csv(csvFilename)
 ```
 
-####Statistiques descriptives
+#### Statistiques descriptives
 
 Toujours grâce au module *Pandas* ainsi qu'au module *Statistics*, il ne restait plus qu'à lire les fichiers *.csv* de chaque sujet et à sommer les résultats de tous les sujets en fonction des différentes conditions pour obtenir les temps de réaction en ms et les performances en %.
 
