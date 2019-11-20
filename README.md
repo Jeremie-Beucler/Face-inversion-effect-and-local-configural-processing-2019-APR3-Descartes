@@ -21,7 +21,8 @@ Une croix de fixation précède chaque présentation durant 1500ms, et est suivi
 A chaque fois, le participant doit indiquer si les photos de la paire présentée sont pareils ou différents. Il y a 10 paires d'entraînement, suivies de 64 paires présentées dans un ordre aléatoire.
 
 ```
-"""Expérience de discrimination de visages à 4 conditions à l'aide d'Expyriment dont les résultats par sujet sont enregistrés dans un dossier 'data'"""
+"""Expérience de discrimination de visages à 4 conditions à l'aide d'Expyriment dont les résultats 
+#par sujet sont enregistrés dans un dossier 'data'"""
 
 # -*- coding: utf-8 -*-
 import random
@@ -42,7 +43,8 @@ while counter < 1:
         counter +=1
     else:
         counter = counter
-#permet de changer une fois sur deux la touche 'pareil' et la touche 'différent' pour contrebalancer les effets de latéralité
+#permet de changer une fois sur deux la touche 'pareil' et la touche 'différent' 
+#pour contrebalancer les effets de latéralité
 
 exp = expyriment.design.Experiment(name="Perception des visages")
 expyriment.control.initialize(exp)
@@ -74,7 +76,8 @@ same = []
 diff = []
 l_glob = []
 list_stim = []
-#création de 4 listes pour les 4 conditions + 2 selon pareil/différent + 2 pour la présentation de tous les stimuli
+#création de 4 listes pour les 4 conditions + 2 selon pareil/différent 
+#+ 2 pour la présentation de tous les stimuli
 
 for i in range(1, 5):
 	l_glob.append('P' + str(i) + 'FDAT' + '.jpg')
@@ -93,14 +96,16 @@ for i in range(1, 5):
 	l_glob.append('P' + str(i) + 'FSEK' + '.jpg')
 	l_glob.append('P' + str(i) + 'MSET' + '.jpg')
 	l_glob.append('P' + str(i) + 'MSEK' + '.jpg')
-#créé les noms des fichiers par rapport au facteur sexe (M/F), pareil/différent (S/D), endroit/envers (A/E), et floutage des yeux partiel/total(K/T)
+#créé les noms des fichiers par rapport au facteur sexe (M/F), pareil/différent (S/D), 
+#endroit/envers (A/E), et floutage des yeux partiel/total(K/T)
 #donc nécessite que les photos aient des noms précis pour fonctionner
 
 upr_l = []
 upd_l = []
 part_l = []
 tot_l = []
-#création de 4 sous-listes pour distribuer dans les 4 listes des 4 conditions (voir block ci-dessous)
+#création de 4 sous-listes pour distribuer dans les 4 listes des 4 conditions 
+#(voir block ci-dessous)
 
 y = 0
 while y < len(l_glob):
@@ -130,7 +135,7 @@ while y < len(l_glob):
 	elif list_stim[y] in upd_l and list_stim[y] in part_l:
 		upd_part.append(list_stim[y])
 	y +=1
-	#distribue le stim dans les 4 listes selon les différents facteurs (4 conditions: upr_tot, etc.)
+#distribue le stim dans les 4 listes selon les différents facteurs (4 conditions: upr_tot, etc.)
 
 random.shuffle(list_stim)
 list_train = list_stim[0: 10]
@@ -161,7 +166,8 @@ for elt in list_train:
 	elt.present()
 	exp.keyboard.wait([expyriment.misc.constants.K_l,
 								expyriment.misc.constants.K_s])
-#liste d'entraînement de 10 stimuli dont les données ne sont pas prises en compte dans les résultats
+#liste d'entraînement de 10 stimuli dont les données ne sont pas prises 
+#en compte dans les résultats
 
 text_4.present()
 exp.clock.wait(3500)
@@ -238,7 +244,9 @@ for elt in list_stim:
 					
 				else:
 					exp.data.add(["upd_part", "correct", rt])
-#selon la condition dans laquelle se trouve le stimulus, enregistre si sa réponse est correcte ainsi que son temps de réaction dans un fichier xpd dans le dossier 'data'
+#selon la condition dans laquelle se trouve le stimulus, enregistre si
+#sa réponse est correcte ainsi que son temps de réaction dans un 
+#fichier xpd dans le dossier 'data'
 			
 expyriment.control.end(goodbye_text="Merci pour votre participation!")
 ```
