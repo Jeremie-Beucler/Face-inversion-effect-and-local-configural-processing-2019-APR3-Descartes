@@ -4,7 +4,7 @@
 
 ### Elaboration des stimuli
 
-Les paires de visages utilisées dans l'expérience ont été tirées de la [Chicago Face Database](https://chicagofaces.org/default/), dont les conditions d'exposition sont standardisées, et ont été détourées et mises en noir et blanc grâce au logiciel *Gimp*. 
+Les paires de visages utilisées dans l'expérience ont été tirées de la [Chicago Face Database](https://chicagofaces.org/default/), dont les conditions d'exposition sont standardisées, et ont été détourées et mises en noir et blanc grâce au logiciel [Gimp](https://www.gimp.org/fr/). 
 
 Le floutage et l'orientation ont ensuite été ajoutés aux photos obtenues. 
 
@@ -12,7 +12,7 @@ Il y avait donc 16 visages différents en tout, soit *8 paires de visages* (4 pa
 
 ### Codage de l'expérience
 
-Il s'agit d'une expérience de discrimination de visages réalisée sur *Python 3* à l'aide du module [Expyriment](https://www.expyriment.org/). 
+Il s'agit d'une expérience de discrimination de visages réalisée sur [Python 3](https://www.python.org/) à l'aide du module [Expyriment](https://www.expyriment.org/). 
 
 Il y a deux facteurs à deux modalités: **Orientation** (*endroit/envers*) et **Floutage de la zone des yeux** (*partiel/total*), soit 4 conditions. 
 
@@ -262,7 +262,7 @@ expyriment.control.end(goodbye_text="Merci pour votre participation!")
 
 Il m'a ensuite fallu convertir les fichiers *.xpd* en fichiers *.csv* et supprimer les premières lignes des fichiers qui contenaient des informations inutiles.
 
-Sur internet, j'ai trouvé cette petite manip' pour changer rapidement l'extension de plusieurs fichiers grâce à un fichier *.bat*.
+Sur [Internet](https://www.sospc95.fr/blog/modifier-lextension-de-plusieurs-fichiers-en-1-clic/), j'ai trouvé cette petite manip' pour changer rapidement l'extension de plusieurs fichiers grâce à un fichier *.bat*.
 
 ```
 @echo off
@@ -312,7 +312,7 @@ Une fois cela effectué, l'on dispose donc de fichiers *.csv* utilisables direct
 
 #### Suppression des "outliers"
 
-Sur les conseils de notre enseignante d'APR3, il restait à supprimer les données aberrantes, celles pour lesquelles le sujet avait répondu en moins de 300ms ou celles dont le score Z était supérieur à trois (les réponses beaucoup trop rapides, ou beaucoup trop lentes par rapport aux autres réponses du sujet. Cela a été effectué grâce au module *Pandas*.
+Sur les conseils de notre enseignante d'APR3, il restait à supprimer les données aberrantes, celles pour lesquelles le sujet avait répondu en moins de 300ms ou celles dont le score Z était supérieur à trois (les réponses beaucoup trop rapides, ou beaucoup trop lentes par rapport aux autres réponses du sujet. Cela a été effectué grâce au module [Pandas (Python Data Analysis Library](https://pandas.pydata.org/).
 
 ```
 import os
