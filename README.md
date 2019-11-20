@@ -312,7 +312,7 @@ Une fois cela effectué, l'on dispose donc de fichiers *.csv* utilisables direct
 
 #### Suppression des "outliers"
 
-Sur les conseils de notre enseignante d'APR3, il restait à supprimer les données aberrantes, celles pour lesquelles le sujet avait répondu en moins de 300ms ou celles dont le score Z était supérieur à trois (les réponses beaucoup trop rapides, ou beaucoup trop lentes par rapport aux autres réponses du sujet. Cela a été effectué grâce au module [Pandas (Python Data Analysis Library](https://pandas.pydata.org/).
+Sur les conseils de notre enseignante d'APR3, il restait à supprimer les données aberrantes, celles pour lesquelles le sujet avait répondu en moins de 300ms ou celles dont le score Z était supérieur à trois (les réponses beaucoup trop rapides, ou beaucoup trop lentes par rapport aux autres réponses du sujet. Cela a été effectué grâce au module [Pandas (Python Data Analysis Library)](https://pandas.pydata.org/).
 
 ```
 import os
