@@ -1,4 +1,4 @@
-# Memoire APR3 (réalisé avec Emma Herché & Constantin Santarelli)
+# Projet APR3: expérience de discrimination (réalisé avec Emma Herché & Constantin Santarelli)
 
 ## Mise au point de l'expérience
 
