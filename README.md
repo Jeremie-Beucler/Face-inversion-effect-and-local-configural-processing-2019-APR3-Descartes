@@ -1,10 +1,10 @@
-# Memoire APR3 (réalisé avec Emma HERCHE et Constantin SANTARELLI)
+# Memoire APR3 (réalisé avec Emma Herché & Constantin Santarelli)
 
 ## Mise au point de l'expérience
 
 ### Elaboration des stimuli
 
-Les paires de visages sont tirées de la [Chicago Face Database](https://chicagofaces.org/default/), dont les conditions d'exposition sont standardisées, et ont été détourées et mises en noir et blanc grâce au logiciel *Gimp*. 
+Les paires de visages utilisées dans l'expérience ont été tirées de la [Chicago Face Database](https://chicagofaces.org/default/), dont les conditions d'exposition sont standardisées, et ont été détourées et mises en noir et blanc grâce au logiciel *Gimp*. 
 
 Le floutage et l'orientation ont ensuite été ajoutés aux photos obtenues. 
 
@@ -488,9 +488,9 @@ De même, il aurait pu être intéressant de rajouter une condition contrôle av
 
 Je remercie chaleureusement de leur aide ou de leur collaboration dans ce modeste travail:
 
-- l'enseignante de l'UE APR3 de Paris Descartes pour ses conseils concernant le design de l'expérience, les facteurs à contrôler, le traitement des données (exclusion des outliers, etc.).
-- mon professeur de programmation du cours PCBS à l'ENS pour son enseignement de la programmation et les nombreux outils qu'il nous a fournis (Expyriment, Pandas, Github et Git, Automatetheboringstuff, Pygame, son propre site, etc.)
-- et bien sûr, mes deux collègues avec qui j'ai effectué ce travail dans le cadre de l'UE APR3
+- **l'enseignante de l'UE APR3** de l'Université Paris Descartes pour ses conseils concernant le design de l'expérience, les facteurs à contrôler, le traitement des données (exclusion des outliers, etc.);
+- **mon professeur de programmation du cours PCBS** à l'ENS pour son enseignement de la programmation et les nombreux outils qu'il nous a fournis (Expyriment, Pandas, Github et Git, Automatetheboringstuff, Pygame, son propre site, etc.);
+- et bien sûr, **mes deux collègues de L2 de Psychologie** avec qui j'ai effectué ce travail dans le cadre de l'UE APR3.
 
 
 
