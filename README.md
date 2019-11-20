@@ -1,8 +1,27 @@
 # Memoire-APR3
 
-Il s'agit d'une expérience de discrimination de visages. Les visages sont présentés à l'endroit et à l'envers. La zone entière des yeux ou seulement l'intérieur des yeux sont floutés. Une croix de fixation précède chaque présentation durant 1500ms. Il y a 10 paires d'entraînement, suivies de 64 paires présentées dans un ordre aléatoire, pour toutes les modalités des deux facteurs. Les résultats (performance en % et RT en ms) sont enregistrés pour chaque participant dans un fichier "results.txt".
+##Mise au point de l'expérience
+
+###Elaboration des stimuli
+
+Les paires de visages sont tirées de la *Chicago Face Database*, dont les conditions d'exposition sont standardisées, et ont été détourées et mises en noir et blanc grâce au logiciel *Gimp*. Le floutage et l'orientation ont ensuite été ajoutés grâce à Powerpoint.
+
+###Codage de l'expérience
+
+Il s'agit d'une expérience de discrimination de visages réalisée sur *Python 3* à l'aide du module *Expyriment*. 
+
+Il y a deux facteurs à deux modalités: Orientation (endroit/envers) et Floutage de la zone des yeux (partiel/total), soit 4 conditions. 
+
+Une croix de fixation précède chaque présentation durant 1500ms, et est suivie de la présentation aléatoire de deux photos appartenant à l'une des quatre conditions.
+
+![](P2MDEK.jpg)
+
+*Exemple: photo de deux visages à l'envers dont l'intérieur des yeux est flouté.* 
+
+A chaque fois, le participant doit indiquer si les photos de la paire présentée sont pareils ou différents. Il y a 10 paires d'entraînement, suivies de 64 paires présentées dans un ordre aléatoire.
 
 ```
+"""Expérience de discrimination de visages à 4 conditions à l'aide d'Expyriment dont les résultats par sujet sont enregistrés dans un dossier 'data'"""
 
 # -*- coding: utf-8 -*-
 import random
@@ -23,7 +42,7 @@ while counter < 1:
         counter +=1
     else:
         counter = counter
-#counterbalance the laterality
+#permet de changer une fois sur deux la touche 'pareil' et la touche 'différent' pour contrebalancer les effets de latéralité
 
 exp = expyriment.design.Experiment(name="Perception des visages")
 expyriment.control.initialize(exp)
@@ -45,7 +64,7 @@ compte_a_reb_4 = expyriment.stimuli.TextLine(text="2", text_size=45)
 list_rebours.append(compte_a_reb_4)
 compte_a_reb_5 = expyriment.stimuli.TextLine(text="1", text_size=45)
 list_rebours.append(compte_a_reb_5)
-#création des textes précédant l'expérience
+#création des textes (consignes, etc.) précédant l'expérience
 
 upr_tot = []
 upd_tot = []
@@ -55,7 +74,7 @@ same = []
 diff = []
 l_glob = []
 list_stim = []
-#4 listes pour les 4 conditions + 2 selon pareil/différent + 2 pour la présentation de tous les stimuli
+#création de 4 listes pour les 4 conditions + 2 selon pareil/différent + 2 pour la présentation de tous les stimuli
 
 for i in range(1, 5):
 	l_glob.append('P' + str(i) + 'FDAT' + '.jpg')
@@ -74,14 +93,14 @@ for i in range(1, 5):
 	l_glob.append('P' + str(i) + 'FSEK' + '.jpg')
 	l_glob.append('P' + str(i) + 'MSET' + '.jpg')
 	l_glob.append('P' + str(i) + 'MSEK' + '.jpg')
-#generate the filenames of the pictures according to the factor sex M/F, same/different S/D, upright/upside-down A/E, and K/T partiel/total 
-#and put them in a list (so the pictures need to have precise names for the program to work)
+#créé les noms des fichiers par rapport au facteur sexe (M/F), pareil/différent (S/D), endroit/envers (A/E), et floutage des yeux partiel/total(K/T)
+#donc nécessite que les photos aient des noms précis pour fonctionner
 
 upr_l = []
 upd_l = []
 part_l = []
 tot_l = []
-#sous-listes pour distribuer dans les 4 listes des 4 conditions (voir block ci-dessous)
+#création de 4 sous-listes pour distribuer dans les 4 listes des 4 conditions (voir block ci-dessous)
 
 y = 0
 while y < len(l_glob):
@@ -111,28 +130,20 @@ while y < len(l_glob):
 	elif list_stim[y] in upd_l and list_stim[y] in part_l:
 		upd_part.append(list_stim[y])
 	y +=1
-	#distribue le stim selon les différents facteurs: 4 conditions
+	#distribue le stim dans les 4 listes selon les différents facteurs (4 conditions: upr_tot, etc.)
 
 random.shuffle(list_stim)
 list_train = list_stim[0: 10]
-#créé une liste d'entraînement de 10 stim au hasard
+#créé une liste d'entraînement de 10 stim au hasard parmi les stimuli
 random.shuffle(list_stim)
 
 
 cross = expyriment.stimuli.FixCross(colour=(255, 255, 255))
 cross.preload()
-#croix de fixation
-
-upr_tot_rt = 0
-upr_tot_prf = 0
-upd_tot_rt = 0
-upd_tot_prf = 0
-upr_part_rt = 0
-upr_part_prf = 0
-upd_part_rt = 0
-upd_part_prf = 0
+#importe la croix de fixation
 
 exp.data_variable_names = ["Condition", "Correct", "RT"]
+#créé les différentes colonnes du fichier 'data'
 
 expyriment.control.start()
 
@@ -142,6 +153,7 @@ text_2.present()
 exp.keyboard.wait()
 text_3.present()
 exp.keyboard.wait()
+#donne les consignes au sujet
 
 for elt in list_train:
 	cross.present()
@@ -149,7 +161,7 @@ for elt in list_train:
 	elt.present()
 	exp.keyboard.wait([expyriment.misc.constants.K_l,
 								expyriment.misc.constants.K_s])
-#liste d'entraînement de 10 stimuli dont les données ne sont pas prises en compte
+#liste d'entraînement de 10 stimuli dont les données ne sont pas prises en compte dans les résultats
 
 text_4.present()
 exp.clock.wait(3500)
@@ -168,91 +180,262 @@ for elt in list_stim:
 			if elt in same:
 				if key == nb_key_same:
 					exp.data.add(["upr_tot", "correct", rt])
-					upr_tot_prf += 1
-					upr_tot_rt += rt
+
 				else:
 					exp.data.add(["upr_tot", "false", rt])
-					upr_tot_rt += rt
+					
 			if elt in diff:
 				if key == nb_key_same:
 					exp.data.add(["upr_tot", "false", rt])
-					upr_tot_rt += rt
+					
 				else:
 					exp.data.add(["upr_tot", "correct", rt])
-					upr_tot_prf += 1
-					upr_tot_rt += rt
+					
 		
 		if elt in upr_part:
 			if elt in same:
 				if key == nb_key_same:
 					exp.data.add(["upr_part", "correct", rt])
-					upr_part_prf += 1
-					upr_part_rt += rt
+					
 				else:
 					exp.data.add(["upr_part", "false", rt])
-					upr_part_rt += rt
+					
 			if elt in diff:
 				if key == nb_key_same:
 					exp.data.add(["upr_part", "false", rt])
-					upr_part_rt += rt
+					
 				else:
 					exp.data.add(["upr_part", "correct", rt])
-					upr_part_prf += 1
-					upr_part_rt += rt
+					
 					
 		if elt in upd_tot:
 			if elt in same:
 				if key == nb_key_same:
 					exp.data.add(["upd_tot", "correct", rt])
-					upd_tot_prf += 1
-					upd_tot_rt += rt
+					
 				else:
 					exp.data.add(["upd_tot", "false", rt])
-					upd_tot_rt += rt
+					
 			if elt in diff:
 				if key == nb_key_same:
 					exp.data.add(["upd_tot", "false", rt])
-					upd_tot_rt += rt
+					
 				else:
 					exp.data.add(["upd_tot", "correct", rt])
-					upd_tot_prf += 1
-					upd_tot_rt += rt
+					
 		
 		if elt in upd_part:
 			if elt in same:
 				if key == nb_key_same:
 					exp.data.add(["upd_part", "correct", rt])
-					upd_part_prf += 1
-					upd_part_rt += rt
+					
 				else:
 					exp.data.add(["upd_part", "false", rt])
-					upd_part_rt += rt
+
 			if elt in diff:
 				if key == nb_key_same:
 					exp.data.add(["upd_part", "false", rt])
-					upd_part_rt += rt
+					
 				else:
 					exp.data.add(["upd_part", "correct", rt])
-					upd_part_prf += 1
-					upd_part_rt += rt
+#selon la condition dans laquelle se trouve le stimulus, enregistre si sa réponse est correcte ainsi que son temps de réaction dans un fichier xpd dans le dossier 'data'
 			
 expyriment.control.end(goodbye_text="Merci pour votre participation!")
+```
+##Analyse des données
 
-nb_tot_stim = len(list_stim)
+###Conversion en fichiers *.csv* et suppression des premières lignes
 
-mean_PRF_upr_tot = str(round((upr_tot_prf/(nb_tot_stim/4)) * 100))
-mean_PRF_upr_part = str(round((upr_part_prf/(nb_tot_stim/4)) * 100))
-mean_PRF_upd_tot = str(round((upd_tot_prf/(nb_tot_stim/4)) * 100))
-mean_PRF_upd_part = str(round((upd_part_prf/(nb_tot_stim/4)) * 100))
-mean_RT_upr_tot = str(round((upr_tot_rt/(nb_tot_stim/4))))
-mean_RT_upr_part = str(round((upr_part_rt/(nb_tot_stim/4))))
-mean_RT_upd_tot = str(round((upd_tot_rt/(nb_tot_stim/4))))
-mean_RT_upd_part = str(round((upd_part_rt/(nb_tot_stim/4))))
+Il m'a ensuite fallu convertir les fichiers *.xpd* en fichiers *.csv* et supprimer les premières lignes des fichiers qui contenaient des informations inutiles.
 
-resultsFile = open('results.txt', 'a')
-resultsFile.write(mean_PRF_upr_tot + ',' + mean_PRF_upr_part + ',' + mean_PRF_upd_tot + ',' + mean_PRF_upd_part + ',' + mean_RT_upr_tot + ',' + mean_RT_upr_part + ',' + mean_RT_upd_tot + ',' + mean_RT_upd_part + '\n')
-resultsFile.close()
+Sur internet, j'ai trouvé cette petite manip' pour changer rapidement l'extension de plusieurs fichiers.
 
 ```
+@echo off
+ren *.xpd *.csv
+```
+Il ne me restait plus qu'à supprimer les premières lignes de mes fichiers *.csv*.
+
+```
+import csv
+import os
+
+for csvFilename in os.listdir('.'):
+	if not csvFilename.endswith('.csv'):
+		continue
+#si le fichier n'est pas en .csv, le programme ne le prend pas en compte
+	elif 'new' in csvFilename:
+		continue
+	csvRows = []
+	csvFileObj = open(csvFilename)
+	readerObj = csv.reader(csvFileObj)
+	for row in readerObj:
+		if readerObj.line_num in range(1, 11):
+			continue
+#saute les 11 premières lignes (celles que l'on souhaite supprimer ici)			
+
+		csvRows.append(row)
+	csvFileObj.close()
+	csvFileObj = open('new' + csvFilename, 'w', newline='')
+	csvWriter = csv.writer(csvFileObj)
+	for row in csvRows:
+		csvWriter.writerow(row)
+	csvFileObj.close()
+#créé un nouveau fichier csv que l'on va utiliser pour la suite	
+
+		csvRows.append(row)
+	csvFileObj.close()
+	csvFileObj = open('new' + csvFilename, 'w', newline='')
+	csvWriter = csv.writer(csvFileObj)
+	for row in csvRows:
+		csvWriter.writerow(row)
+	csvFileObj.close()
+```
+
+###Traitement des données
+
+Une fois cela effectué, l'on dispose donc de fichiers *.csv* utilisables directement.
+
+####Suppression des "outliers"
+
+Il restait à supprimer les données aberrantes, celles pour lesquelles le sujet avait répondu en moins de 300ms ou celles dont le score Z était supérieur à trois (les réponses beaucoup trop rapides, ou beaucoup trop lentes par rapport aux autres réponses du sujet. Cela a été effectué grâce au module *Pandas*.
+
+```
+import os
+import pandas as pd
+
+for csvFilename in os.listdir('.'):
+	if not csvFilename.endswith('.csv'):
+		continue
+#ne prend en compte que les fichiers .csv
+	data_frame = pd.read_csv(csvFilename)
+#créé un 'data frame' avec pandas à partir du fichier csv
+	mean_rt = data_frame.RT.mean()
+	standard_dev_rt = data_frame.RT.std()
+	i = 0
+	elt_to_del = []
+	for elt in data_frame.RT:
+		if elt < 300:
+			elt_to_del.append(i)
+		elif abs(((elt - mean_rt) / standard_dev_rt)) > 3:
+			elt_to_del.append(i)
+		else: 
+			i += 1
+	counter = 0
+#supprime les données aberrates par rapport aux rt
+	if len(elt_to_del) != 0:
+		for elt in elt_to_del:
+			print("Supression de la ligne excel (", csvFilename, "): ", elt + counter + 2)
+			print(data_frame.iloc[int(elt)])
+#m'informe des données qui ont été supprimées pour que je puisse vérifier leur nombre, etc.
+			print('')
+			data_frame = data_frame.drop(data_frame.index[elt])
+			counter += 1
+			data_frame = data_frame.reset_index(drop=True)
+		data_frame.to_csv('corrected' + csvFilename)
+#si des données aberrantes ont été supprimées, enregistre le résultat sans écraser le premier fichier
+	else:
+		data_frame.to_csv(csvFilename)
+```
+
+####Statistiques descriptives
+
+Toujours grâce au module *Pandas* ainsi qu'au module *Statistics*, il ne restait plus qu'à lire les fichiers *.csv* de chaque sujet et à sommer les résultats de tous les sujets en fonction des différentes conditions pour obtenir les temps de réaction en ms et les performances en %.
+
+```
+import os
+import pandas as pd
+import statistics as stat
+
+mean_rt_upr_tot = 0
+mean_rt_upr_part = 0
+mean_rt_upd_tot = 0
+mean_rt_upd_part = 0
+
+sd_rt_upr_tot = 0
+sd_rt_upr_part = 0
+sd_rt_upd_tot = 0
+sd_rt_upd_part = 0
+
+mean_prf_upr_tot = []
+mean_prf_upr_part = []
+mean_prf_upd_tot = []
+mean_prf_upd_part = []
+
+sd_prf_upr_tot = []
+sd_prf_upr_part = []
+sd_prf_upd_tot = []
+sd_prf_upd_part = []
 
 
+
+for csvFilename in os.listdir('.'):
+#boucle sur chaque fichier .csv, i.e. sur chaque sujet
+	if not csvFilename.endswith('.csv'):
+		continue
+#ne prend en compte que les fichiers csv
+
+	df = pd.read_csv(csvFilename)
+	df_upr_tot = df[df.Condition == 'upr_tot']
+	df_upr_tot_corr = df_upr_tot[df_upr_tot.Correct == 'correct']
+	mean_rt_upr_tot += df_upr_tot_corr.RT.mean()
+	sd_rt_upr_tot += df_upr_tot_corr.RT.std(ddof=0)
+	nb_corr_upr_tot = df_upr_tot_corr.RT.count()
+	nb_upr_tot = df_upr_tot.RT.count()
+	mean_prf_upr_tot.append((nb_corr_upr_tot / nb_upr_tot) * 100)
+#somme les données pour chaque condition (ici: upr_tot)
+	
+	df_upr_part = df[df.Condition == 'upr_part']
+	df_upr_part_corr = df_upr_part[df_upr_part.Correct == 'correct']
+	mean_rt_upr_part += df_upr_part_corr.RT.mean()
+	sd_rt_upr_part += df_upr_part_corr.RT.std(ddof=0)
+	nb_corr_upr_part = df_upr_part_corr.RT.count()
+	nb_upr_part = df_upr_part.RT.count()
+	mean_prf_upr_part.append((nb_corr_upr_part / nb_upr_part) * 100)
+	
+	df_upd_tot = df[df.Condition == 'upd_tot']
+	df_upd_tot_corr = df_upd_tot[df_upd_tot.Correct == 'correct']
+	mean_rt_upd_tot += df_upd_tot_corr.RT.mean()
+	sd_rt_upd_tot += df_upd_tot_corr.RT.std(ddof=0)
+	nb_corr_upd_tot = df_upd_tot_corr.RT.count()
+	nb_upd_tot = df_upd_tot.RT.count()
+	mean_prf_upd_tot.append((nb_corr_upd_tot / nb_upd_tot) * 100)
+	
+	df_upd_part = df[df.Condition == 'upd_part']
+	df_upd_part_corr = df_upd_part[df_upd_part.Correct == 'correct']
+	mean_rt_upd_part += df_upd_part_corr.RT.mean()
+	sd_rt_upd_part += df_upd_part_corr.RT.std(ddof=0)
+	nb_corr_upd_part = df_upd_part_corr.RT.count()
+	nb_upd_part = df_upd_part.RT.count()
+	mean_prf_upd_part.append((nb_corr_upd_part / nb_upd_part) * 100)
+
+print('\nupr_tot\n')
+print('rt')
+print(round(mean_rt_upr_tot / 20))
+print(round(sd_rt_upr_tot / 20))
+print('prf')
+print(round(stat.mean(mean_prf_upr_tot), 2))
+print(round(stat.pstdev(mean_prf_upr_tot), 2))
+print('upr_part\n')
+print('rt')
+print(round(mean_rt_upr_part / 20))
+print(round(sd_rt_upr_part / 20))
+print('prf')
+print(round(stat.mean(mean_prf_upr_part), 2))
+print(round(stat.pstdev(mean_prf_upr_part), 2))
+print('upd_tot\n')
+print('rt')
+print(round(mean_rt_upd_tot / 20))
+print(round(sd_rt_upd_tot / 20))
+print('prf')
+print(round(stat.mean(mean_prf_upd_tot), 2))
+print(round(stat.pstdev(mean_prf_upd_tot), 2))
+print('upd_part\n')
+print('rt')
+print(round(mean_rt_upd_part / 20))
+print(round(sd_rt_upd_part / 20))
+print('prf')
+print(round(stat.mean(mean_prf_upd_part), 2))
+print(round(stat.pstdev(mean_prf_upd_part), 2))
+#sort les résultats pour tous les sujets
+```
