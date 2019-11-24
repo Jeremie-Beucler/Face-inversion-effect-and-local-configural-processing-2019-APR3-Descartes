@@ -184,6 +184,10 @@ for elt in list_rebours:
 	exp.clock.wait(1000)
 ```
 
+Voici les consignes reçues par les sujets:
+
+![consignes](consignes.png)
+
 ### Passation de l'expérience et enregistrement des données
 
 Avant chaque stimuli, la croix de fixation apparaît pendant 1500 ms. Ensuite, en fonction de la condition dans laquelle se trouve le stimulus, les réponses du sujet sont enregistrée (condition, correct/incorrect, temps de réaction).
