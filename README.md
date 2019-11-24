@@ -186,7 +186,6 @@ for elt in list_rebours:
 
 Voici les consignes reçues par la moitié des sujets (pour l'autre moitié, les touches étaient inversées):
 
-![consignes](consignes.png)
 
 ### Passation de l'expérience et enregistrement des données
 
