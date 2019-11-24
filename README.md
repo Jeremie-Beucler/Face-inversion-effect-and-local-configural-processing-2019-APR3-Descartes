@@ -1,4 +1,4 @@
-# Code du projet APR3
+# Projet APR3
 
 ## Mise au point de l'expérience grâce au module [Expyriment](https://www.expyriment.org/)
 
