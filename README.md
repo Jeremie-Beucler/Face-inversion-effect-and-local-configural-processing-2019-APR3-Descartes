@@ -567,12 +567,6 @@ Ensuite, il m'a permis d'**appliquer ce que j'apprenais en cours de programmatio
 
 ### Les axes d'amélioration
 
-#### Le travail d'équipe
-
-Ce projet était à réaliser en équipe de trois, et je ne connaissais pas mes partenaires, qui faisaient partie de mon groupe de TD, au début du projet. J'ai souvent eu l'impression d'effectuer une grande partie du travail de mon côté (même en retirant la partie programmation). Si cela m'a permis de gagner en autonomie, je n'ai pas vraiment appris à travailler en équipe aussi bien que j'aurais dû, et inversement, je ne pense pas qu'ils aient retiré autant qu'ils auraient pu de ce projet. Cependant, nous avons quand même bien échangé sur la partie concernant le *design* de l'expérience. 
-
-Enfin, il était un peu frustrant de voir que tout le monde n'apportait pas le même soin à la réalisation du travail. Ainsi,  l'un des partenaires faisait passer ses sujets au CROUS, ou encore au café. De même, alors qu'il n'avait qu'à rajouter les floutages sur les différents stimuli, le floutage partiel a été réalisé de façon différente entre les visages masculins et les visages féminins...
-
 #### Le nombre de visages présentés et le design expérimental
 
 L'expérience ne présentait que 16 visages différents, dans la mesure où tous les facteurs étaient en intra-sujet et que nous ne voulions pas que l'expérience dure trop longtemps (sachant que nos sujets n'étaient pas payés). Peut-être aurait-il fallu passer les facteurs en inter-sujet pour éviter cet écueil, et ainsi présenter un plus grand nombre de visages!
@@ -589,9 +583,9 @@ De même, il aurait pu être intéressant de rajouter une condition contrôle av
 
 ### Remerciements
 
-- **l'enseignante de l'UE APR3** de l'Université Paris Descartes pour ses conseils concernant le design de l'expérience, les facteurs à contrôler, le traitement des données (exclusion des outliers, etc.);
-- **mon professeur de programmation du cours PCBS** à l'ENS pour son enseignement de la programmation et les nombreux outils qu'il nous a fournis (Expyriment, Pandas, Github et Git, Automatetheboringstuff, Pygame, son propre site, etc.);
-- et bien sûr, **mes deux collègues de L2 de Psychologie** avec qui j'ai effectué ce travail dans le cadre de l'UE APR3.
+- **l'enseignante de l'UE APR3** de l'Université Paris Descartes pour ses conseils, et notamment ceux concernant le design de l'expérience, les facteurs à contrôler, le traitement des données (exclusion des outliers, etc.);
+- **mon professeur de programmation** pour son enseignement et les nombreux outils qu'il nous a fournis;
+- **mes deux collègues de L2 de Psychologie** avec qui j'ai effectué ce travail dans le cadre de l'UE APR3.
 
 
 
