@@ -184,7 +184,7 @@ for elt in list_rebours:
 	exp.clock.wait(1000)
 ```
 
-Voici les consignes reçues par les sujets:
+Voici les consignes reçues par la moitié des sujets (pour l'autre moitié, les touches étaient inversées):
 
 ![consignes](consignes.png)
 
