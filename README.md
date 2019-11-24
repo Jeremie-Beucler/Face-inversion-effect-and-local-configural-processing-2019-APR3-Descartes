@@ -157,7 +157,7 @@ exp.data_variable_names = ["Condition", "Correct", "RT"]
 
 ### Présentation des consignes et liste d'entraînement
 
-Je lance l'expérience, présente les consignes, et présenteles stimuli de la liste d'entraînement sans enregistrer les réponses de mes sujets.
+Je lance l'expérience, présente les consignes, et présente les stimuli de la liste d'entraînement sans enregistrer les réponses de mes sujets.
 ```
 expyriment.control.start()
 
@@ -185,6 +185,8 @@ for elt in list_rebours:
 ```
 
 Voici les consignes reçues par la moitié des sujets (pour l'autre moitié, les touches étaient inversées):
+
+![consignes](consignes.png)
 
 
 ### Passation de l'expérience et enregistrement des données
