@@ -1,4 +1,4 @@
-# Projet APR3: expérience de discrimination (réalisé avec Emma Herché & Constantin Santarelli)
+# Code du projet APR3: expérience de discrimination
 
 ## Mise au point de l'expérience
 
@@ -6,7 +6,7 @@
 
 Les paires de visages utilisées dans l'expérience ont été tirées de la [Chicago Face Database](https://chicagofaces.org/default/), dont les conditions d'exposition sont standardisées, et ont été détourées et mises en noir et blanc grâce au logiciel [Gimp](https://www.gimp.org/fr/). 
 
-Le floutage et l'orientation ont ensuite été ajoutés aux photos obtenues. 
+Le floutage et l'orientation ont ensuite été ajoutés aux photos obtenues sur Powerpoint. 
 
 Il y avait donc 16 visages différents en tout, soit *8 paires de visages* (4 paires hommes et 4 paires femmes) se ressemblant x *facteur Orientation* x *facteur Floutage des yeux* x *Pareil/différent*, ce qui donne un total de 64 stimuli.
 
