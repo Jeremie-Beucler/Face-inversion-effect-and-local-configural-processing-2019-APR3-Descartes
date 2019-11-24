@@ -33,7 +33,7 @@ while counter < 1:
 #permet de changer une fois sur deux la touche 'pareil' et la touche 'différent' pour contrebalancer les effets de latéralité
 ```
 
-###Elaboration des consignes
+### Elaboration des consignes
 
 Pour créer les consignes, je n'avais quà créer des variables *"expyriment.stimuli.TextLine/TextScreen".*
 ```
@@ -58,7 +58,7 @@ compte_a_reb_5 = expyriment.stimuli.TextLine(text="1", text_size=45)
 list_rebours.append(compte_a_reb_5)
 #création des textes (consignes, etc.) précédant l'expérience
 ```
-###Répartition des stimuli dans les différentes conditions
+### Répartition des stimuli dans les différentes conditions
 
 Ensuite, je devais répartir les différents stimuli dans les différentes conditions. Pour ce faire, je me suis servi des noms des fichiers (qui correspondaient aux différents facteurs). Par exemple, un fichier appelé *"P1FDAT.jpg"* correspondait à une paire de visages féminins différents à l'endroit avec un floutage oculaire total. Le programme scanne le nom du fichier et le distribue dans une des conditions.
 
@@ -559,7 +559,7 @@ Le résultat est le suivant:
 
 J'ai beaucoup retiré de ce travail.
 
-Tout d'abord, il m'a permis de **me familiariser avec la démarche expérimentale**, de voir comment designer une expérience du début à la fin: s'inspirer de la littérature, trouver ses facteurs et les opérationnaliser, fabriquer son matériel en contrôlant les paramètres, créer la procédure, faire passer l'expérience, analyser ses données.
+Tout d'abord, il m'a permis de **me familiariser avec la démarche expérimentale**, de voir comment designer une expérience du début à la fin: s'inspirer de la littérature, trouver ses facteurs et les opérationnaliser, fabriquer son matériel en contrôlant les paramètres, créer la procédure, faire passer l'expérience, analyser ses données. Cela m'a permis de concrétiser ce que l'on apprend notamment en TD d'EXPE2.
 
 Ensuite, il m'a permis d'**appliquer ce que j'apprenais en cours de programmation** à l'ENS, et notamment l'utilisation d'*Expyriment* et de *Pandas*, ainsi que de *Github* pour présenter son propre travail.
 
@@ -567,11 +567,13 @@ Ensuite, il m'a permis d'**appliquer ce que j'apprenais en cours de programmatio
 
 #### Le travail d'équipe
 
-La science est une entreprise collaborative, et ce projet était à réaliser en équipe de trois. Je ne connaissais pas mes partenaires, qui faisaient partie de mon groupe de TD, au début du projet. J'ai souvent eu l'impression d'effectuer la majorité du travail de mon côté. Peut-être était-ce dû en partie au fait qu'ils ne savaient pas coder. Si cela m'a permis de gagner en autonomie, je n'ai pas vraiment appris à travailler en équipe aussi bien que j'aurais dû, ni à déléguer les tâches, et inversement, je ne pense pas qu'ils aient retiré autant qu'ils auraient pu de ce projet. Cependant, nous avons quand même bien échangé sur la partie concernant le *design* de l'expérience.
+Ce projet était à réaliser en équipe de trois, et je ne connaissais pas mes partenaires, qui faisaient partie de mon groupe de TD, au début du projet. J'ai souvent eu l'impression d'effectuer une grande partie du travail de mon côté (même en retirant la partie programmation). Si cela m'a permis de gagner en autonomie, je n'ai pas vraiment appris à travailler en équipe aussi bien que j'aurais dû, et inversement, je ne pense pas qu'ils aient retiré autant qu'ils auraient pu de ce projet. Cependant, nous avons quand même bien échangé sur la partie concernant le *design* de l'expérience. 
+
+Enfin, il était un peu frustrant de voir que tout le monde n'apportait pas le même soin à la réalisation du travail. Ainsi,  l'un des partenaires faisait passer ses sujets au CROUS, ou encore au café. De même, alors qu'il n'avait qu'à rajouter les floutages sur les différents stimuli, le floutage partiel a été réalisé de façon différente entre les visages masculins et les visages féminins...
 
 #### Le nombre de visages présentés et le design expérimental
 
-L'expérience ne présentait que 16 visages différents, dans la mesure où tous les facteurs étaient en intra-sujet et que nous ne voulions pas que l'expérience dure trop longtemps (sachant que nos sujets n'étaient pas payés). Peut-être aurait-il fallu passer les facteurs en inter-sujet pour éviter cet écueil.
+L'expérience ne présentait que 16 visages différents, dans la mesure où tous les facteurs étaient en intra-sujet et que nous ne voulions pas que l'expérience dure trop longtemps (sachant que nos sujets n'étaient pas payés). Peut-être aurait-il fallu passer les facteurs en inter-sujet pour éviter cet écueil, et ainsi présenter un plus grand nombre de visages!
 
 #### La clarté du code
 
@@ -583,9 +585,7 @@ Il était un peu frustrant de devoir se limiter aux statistiques descriptives, d
 
 De même, il aurait pu être intéressant de rajouter une condition contrôle avec des visages non-floutés, pour comparer les résultats avec les conditions Floutage. Mais les consignes de l'UE de l'Université stipulaient qu'il ne fallait que deux facteurs à deux modalités.
 
-### Reconnaissance et remerciements
-
-Je remercie chaleureusement de leur aide ou de leur collaboration dans ce modeste travail:
+### Remerciements
 
 - **l'enseignante de l'UE APR3** de l'Université Paris Descartes pour ses conseils concernant le design de l'expérience, les facteurs à contrôler, le traitement des données (exclusion des outliers, etc.);
 - **mon professeur de programmation du cours PCBS** à l'ENS pour son enseignement de la programmation et les nombreux outils qu'il nous a fournis (Expyriment, Pandas, Github et Git, Automatetheboringstuff, Pygame, son propre site, etc.);
