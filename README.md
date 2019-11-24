@@ -551,7 +551,7 @@ bar_chart('Perf (%)', 'Floutage', 'Orientation', 'Tot', 'Part', 'Upd', 'Upr', li
 
 Le résultat est le suivant:
 
-![Graphique](Perf (%)_by_Floutage_and_Orientation.png)
+![Graphique](graphique.png)
 
 ## Conclusion
 
