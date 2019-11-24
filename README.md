@@ -549,10 +549,10 @@ def bar_chart(VD, name_X, name_C, name_x1, name_x2, name_c1, name_c2, scores, er
 bar_chart('Perf (%)', 'Floutage', 'Orientation', 'Tot', 'Part', 'Upd', 'Upr', list_bar_orien, list_error_orien)	
 ```
 
-
 Le résultat est le suivant:
 
 ![Graphique](graphique.png)
+
 *Graphique de l'interaction à partir du facteur Orientation*
 
 ## Conclusion
