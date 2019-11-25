@@ -47,6 +47,7 @@ text_2 = expyriment.stimuli.TextScreen(heading="Instructions", text="\n\n\n\n\n\
 text_3 = expyriment.stimuli.TextScreen(heading="Entraînement", text="\n\n\n\nVous avez droit à 10 essais d'entraînement.\n\n Appuyez sur une touche pour continuer.")
 text_4 = expyriment.stimuli.TextLine(text="Préparez-vous en mettant vos doigts sur les touches. L'expérience commence dans 5 secondes:")
 ```
+
 ```
 list_rebours = []
 compte_a_reb_1 = expyriment.stimuli.TextLine(text="5", text_size=45)
@@ -164,7 +165,7 @@ exp.data_variable_names = ["Condition", "Correct", "RT"]
 
 ### Présentation des consignes et liste d'entraînement
 
-JIl reste à lancer l'expérience, et présenter les consignes, puis les stimuli de la liste d'entraînement sans enregistrer les réponses de mes sujets.
+Il reste à lancer l'expérience, et présenter les consignes, puis les stimuli de la liste d'entraînement sans enregistrer les réponses de mes sujets.
 ```
 expyriment.control.start()
 
