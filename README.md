@@ -46,7 +46,8 @@ text_1 = expyriment.stimuli.TextLine(text="Expérience APR3 - Tâche de discrimi
 text_2 = expyriment.stimuli.TextScreen(heading="Instructions", text="\n\n\n\n\n\n\n\n\nVous allez voir des paires de visage. Appuyez sur la touche '" + letter_key_same + "' si les deux visages sont pareils et sur la touche '" + letter_key_diff + "' si les deux visages sont différents, le plus rapidement et le plus précisément possible. \n\n(Appuyez sur une touche pour continuer)", heading_size=30, heading_underline=True)
 text_3 = expyriment.stimuli.TextScreen(heading="Entraînement", text="\n\n\n\nVous avez droit à 10 essais d'entraînement.\n\n Appuyez sur une touche pour continuer.")
 text_4 = expyriment.stimuli.TextLine(text="Préparez-vous en mettant vos doigts sur les touches. L'expérience commence dans 5 secondes:")
-
+```
+```
 list_rebours = []
 compte_a_reb_1 = expyriment.stimuli.TextLine(text="5", text_size=45)
 list_rebours.append(compte_a_reb_1)
@@ -75,7 +76,8 @@ same = []
 diff = []
 l_glob = []
 list_stim = []
-#création de 4 listes pour les 4 conditions + 2 selon pareil/différent + 2 pour la présentation de tous les stimuli
+#création de 4 listes pour les 4 conditions + 2 selon pareil/différent 
+#+ 2 pour la présentation de tous les stimuli
 
 for i in range(1, 5):
 	l_glob.append('P' + str(i) + 'FDAT' + '.jpg')
@@ -399,7 +401,8 @@ for csvFilename in os.listdir('.'):
 			counter += 1
 			data_frame = data_frame.reset_index(drop=True)
 		data_frame.to_csv('corrected' + csvFilename)
-#si des données aberrantes ont été supprimées, enregistre le résultat sans écraser le premier fichier
+#si des données aberrantes ont été supprimées, enregistre le résultat sans écraser 
+#le premier fichier
 	else:
 		data_frame.to_csv(csvFilename)
 ```
