@@ -4,12 +4,13 @@
 
 ### Contrebalancement de la latéralité
 
-Pour éliminer les effets de la latéralité (e.g. les sujets droitiers appuieront systématiquement plus vite à droite qu'à gauche), j'ai fait en sorte que l'expérimentateur doive rentrer, au début du programme, une fois sur deux le chiffre *1*, et une fois sur deux le chiffre *2*. En fonction du chiffre rentré, les touches pour les réponses "pareil" et "différents" n'étaient pas les mêmes.
+Pour éliminer les effets de la latéralité (e.g. les sujets droitiers appuieront systématiquement plus vite à droite qu'à gauche), j'ai fait en sorte que l'expérimentateur doive rentrer, au début du programme, une fois sur deux le chiffre '1', et une fois sur deux le chiffre '2'. En fonction du chiffre rentré, les touches pour les réponses "pareil" et "différents" ne sont pas les mêmes.
 
 *Axe d'amélioration: j'aurais pu utiliser le module python "sis", pour faire en sorte de rentrer le chiffre en même temps que l'on exécutait le programme sur le terminal, en tant qu'argument (e.g. python experience_apr.py 1), pour gagner du temps et être plus élégant*
 
 ```
-"""Expérience de discrimination de visages à 4 conditions à l'aide d'Expyriment dont les résultats par sujet sont enregistrés dans un dossier 'data'"""
+"""Expérience de discrimination de visages à 4 conditions à l'aide d'Expyriment 
+# dont les résultats par sujet sont enregistrés dans un dossier 'data'"""
 
 # -*- coding: utf-8 -*-
 import random
@@ -30,7 +31,8 @@ while counter < 1:
         counter +=1
     else:
         counter = counter
-#permet de changer une fois sur deux la touche 'pareil' et la touche 'différent' pour contrebalancer les effets de latéralité
+#permet de changer une fois sur deux la touche 'pareil' et la touche 'différent' 
+#pour contrebalancer les effets de latéralité
 ```
 
 ### Elaboration des consignes
@@ -60,7 +62,7 @@ list_rebours.append(compte_a_reb_5)
 ```
 ### Répartition des stimuli dans les différentes conditions
 
-Ensuite, je devais répartir les différents stimuli dans les différentes conditions. Pour ce faire, je me suis servi des noms des fichiers (qui correspondaient aux différents facteurs). Par exemple, un fichier appelé *"P1FDAT.jpg"* correspondait à une paire de visages féminins différents à l'endroit avec un floutage oculaire total. Le programme scanne le nom du fichier et le distribue dans une des conditions.
+Ensuite, il fallait répartir les différents stimuli dans les différentes conditions. Pour ce faire, je me suis servi des noms des fichiers (qui correspondaient aux différents facteurs). Par exemple, un fichier appelé *"P1FDAT.jpg"* correspondait à une paire de visages féminins différents à l'endroit avec un floutage oculaire total. Le programme scanne le nom du fichier et le distribue dans une des conditions.
 
 *Axe d'amélioration:j'aurais pu utiliser les fonctions Expyriment "Block" et "Trials" pour répartir mes différents stimuli dans les différentes conditions; cela aurait été aussi long en terme de code, mais plus élégant et plus efficace pour l'analyse des réponses du participant*
 
@@ -92,14 +94,16 @@ for i in range(1, 5):
 	l_glob.append('P' + str(i) + 'FSEK' + '.jpg')
 	l_glob.append('P' + str(i) + 'MSET' + '.jpg')
 	l_glob.append('P' + str(i) + 'MSEK' + '.jpg')
-#créé les noms des fichiers par rapport au facteur sexe (M/F), pareil/différent (S/D), endroit/envers (A/E), et floutage des yeux partiel/total(K/T)
+#créé les noms des fichiers par rapport au facteur sexe (M/F), pareil/différent (S/D), 
+#endroit/envers (A/E), et floutage des yeux partiel/total(K/T)
 #donc nécessite que les photos aient des noms précis pour fonctionner
 
 upr_l = []
 upd_l = []
 part_l = []
 tot_l = []
-#création de 4 sous-listes pour distribuer dans les 4 listes des 4 conditions (voir block ci-dessous)
+#création de 4 sous-listes pour distribuer dans les 4 listes des
+#4 conditions (voir block ci-dessous)
 
 y = 0
 while y < len(l_glob):
@@ -129,7 +133,8 @@ while y < len(l_glob):
 	elif list_stim[y] in upd_l and list_stim[y] in part_l:
 		upd_part.append(list_stim[y])
 	y +=1
-	#distribue le stim dans les 4 listes selon les différents facteurs (4 conditions: upr_tot, etc.)
+	#distribue le stim dans les 4 listes selon les différents facteurs 
+	#(4 conditions: upr_tot, etc.)
 ```
 
 ### Création de la liste d'entraînement, de la croix de fixation, et des facteurs enregistrés pour chaque réponse
@@ -157,7 +162,7 @@ exp.data_variable_names = ["Condition", "Correct", "RT"]
 
 ### Présentation des consignes et liste d'entraînement
 
-Je lance l'expérience, présente les consignes, et présente les stimuli de la liste d'entraînement sans enregistrer les réponses de mes sujets.
+JIl reste à lancer l'expérience, et présenter les consignes, puis les stimuli de la liste d'entraînement sans enregistrer les réponses de mes sujets.
 ```
 expyriment.control.start()
 
@@ -265,7 +270,8 @@ for elt in list_stim:
 					
 				else:
 					exp.data.add(["upd_part", "correct", rt])
-#selon la condition dans laquelle se trouve le stimulus, enregistre si sa réponse est correcte ainsi que son temps de réaction dans un fichier xpd dans le dossier 'data'
+#selon la condition dans laquelle se trouve le stimulus, enregistre si
+#sa réponse est correcte ainsi que son temps de réaction dans un fichier xpd dans le dossier 'data'
 			
 expyriment.control.end(goodbye_text="Merci pour votre participation!")
 ```
@@ -274,7 +280,7 @@ expyriment.control.end(goodbye_text="Merci pour votre participation!")
 
 ### Conversion en fichiers *.csv* et suppression des premières lignes
 
-Il m'a ensuite fallu convertir les fichiers *.xpd* en fichiers *.csv*, pour faciliter l'analyse des données, et supprimer les premières lignes des fichiers qui contenaient des informations inutiles.
+Il m'a ensuite fallu convertir les fichiers *.xpd* en fichiers *.csv*, pour faciliter l'analyse des données.
 
 Sur [Internet](https://www.sospc95.fr/blog/modifier-lextension-de-plusieurs-fichiers-en-1-clic/), j'ai trouvé cette petite manip' pour changer rapidement l'extension de plusieurs fichiers grâce à un fichier *.bat*.
 
@@ -326,7 +332,7 @@ Une fois cela effectué, l'on dispose donc de fichiers *.csv* utilisables direct
 
 #### Suppression des sujets "outliers"
 
-Sur les conseils de l'enseignante d'APR3, il fallait supprimer les "outliers". Le critère fixé était ceux dont le score Z pour les temps de réaction étaient supérieurs à 3 (en valeur absolue).
+Il fallait supprimer les "outliers". Le critère fixé était ceux dont le score Z pour les temps de réaction étaient supérieurs à 3 (en valeur absolue).
 
 Pour cela, j'ai utilisé le module [Pandas (Python Data Analysis Library)](https://pandas.pydata.org/), qui permet de lire les fichiers *.csv* et d'effectuer des opérations statistiques dessus en créant des *data frame*.
 
@@ -363,7 +369,7 @@ for csvFilename in os.listdir('.'):
 
 #### Suppression des données aberrantes
 
-Il restait à supprimer les données aberrantes, celles pour lesquelles le sujet avait répondu en moins de 300 ms ou celles dont le score Z était supérieur à 2(les réponses beaucoup trop rapides, ou beaucoup trop lentes par rapport aux autres réponses du sujet). 
+Il restait à supprimer les données aberrantes, celles pour lesquelles le sujet avait répondu en moins de 300 ms ou celles dont le score Z était supérieur à 2 (les réponses beaucoup trop rapides, ou beaucoup trop lentes par rapport aux autres réponses du sujet). 
 
 ```
 for csvFilename in os.listdir('.'):
@@ -512,7 +518,7 @@ print(std_upd_part)
 #sort les résultats pour tous les sujets
 ```
 
-### Gaphique
+### Graphique
 
 Ensuite, grâce au module Matplotlib, je pouvais utiliser les résultats pour en faire un graphique.
 
@@ -588,7 +594,7 @@ De même, il aurait pu être intéressant de rajouter une condition contrôle av
 
 ### Remerciements
 
-- **l'enseignante de l'UE APR3** de l'Université Paris Descartes pour ses conseils, et notamment ceux concernant le design de l'expérience, les facteurs à contrôler, le traitement des données (exclusion des outliers, etc.);
+- **mon enseignante de l'UE APR** de l'Université Paris Descartes pour ses conseils, et notamment ceux concernant le design de l'expérience, les facteurs à contrôler, le traitement des données (exclusion des outliers, etc.);
 - **mon professeur de programmation** pour son enseignement et les nombreux outils qu'il nous a fournis;
 - **mes deux collègues de L2 de Psychologie** avec qui j'ai effectué ce travail dans le cadre de l'UE APR3.
 
