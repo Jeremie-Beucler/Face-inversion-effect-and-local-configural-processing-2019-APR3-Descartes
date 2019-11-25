@@ -1,0 +1,75 @@
+#Expyriment 0.10.0 (Python 3.7.4), .xpd-file, coding: cp1252
+#date: Fri Nov 15 2019 12:43:49
+#--EXPERIMENT INFO
+#e mainfile: experience_apr.py
+#e sha1: e320c8
+#e modules: 
+#e Experiment: Perception des visages
+#e no between subject factors
+#--SUBJECT INFO
+#s id: 3
+subject_id,Condition,Correct,RT
+3,upd_part,correct,901
+3,upd_tot,correct,1010
+3,upr_part,correct,903
+3,upr_tot,correct,963
+3,upr_part,correct,1012
+3,upr_part,correct,1520
+3,upr_tot,correct,1051
+3,upd_part,correct,2270
+3,upd_tot,correct,2055
+3,upd_tot,correct,1154
+3,upr_tot,correct,2142
+3,upr_part,correct,966
+3,upr_tot,correct,1700
+3,upd_tot,correct,2279
+3,upd_tot,correct,933
+3,upr_part,correct,1306
+3,upr_part,correct,2089
+3,upr_tot,correct,926
+3,upd_part,correct,1307
+3,upr_tot,correct,1180
+3,upr_part,correct,926
+3,upr_tot,correct,1027
+3,upd_tot,correct,1316
+3,upd_part,correct,1184
+3,upd_part,correct,1333
+3,upd_tot,correct,1508
+3,upd_tot,correct,1522
+3,upr_tot,correct,1193
+3,upr_part,correct,1098
+3,upr_tot,correct,1811
+3,upr_part,correct,1117
+3,upd_tot,correct,1077
+3,upd_tot,correct,1076
+3,upd_part,correct,1306
+3,upr_part,correct,1264
+3,upd_part,correct,1058
+3,upd_tot,correct,837
+3,upd_part,correct,929
+3,upd_part,correct,917
+3,upr_part,correct,1038
+3,upr_tot,correct,1017
+3,upd_part,correct,1092
+3,upr_part,false,854
+3,upd_part,correct,1386
+3,upr_part,correct,1185
+3,upr_tot,correct,795
+3,upd_part,correct,993
+3,upd_part,correct,944
+3,upr_part,correct,2067
+3,upr_tot,correct,1002
+3,upd_tot,correct,1308
+3,upr_part,correct,1083
+3,upr_tot,correct,769
+3,upd_part,correct,1313
+3,upd_tot,correct,1078
+3,upd_tot,correct,1042
+3,upd_tot,correct,1630
+3,upr_tot,correct,1211
+3,upr_part,false,921
+3,upd_tot,correct,944
+3,upr_tot,correct,933
+3,upd_part,correct,1335
+3,upr_tot,correct,1466
+3,upd_part,correct,1452
