@@ -138,6 +138,6 @@ def bar_chart(VD, name_X, name_C, name_x1, name_x2, name_c1, name_c2, scores, er
 	plt.tight_layout()
 	plt.savefig(titlefig)
 		
-bar_chart('Perf (%)', 'Floutage', 'Orientation', 'Tot', 'Part', 'Upd', 'Upr', list_bar_orien, list_error_orien)
+bar_chart('Perf (%)', 'Floutage', 'Orientation', 'Local', 'Configural', 'Envers', 'Endroit', list_bar_orien, list_error_orien)
 
 		
